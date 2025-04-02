@@ -5,6 +5,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+tf.config.set_visible_devices([], 'GPU')
+
 # Load model
 model = keras.models.load_model("CNN_eeg_model.h5")
 model.compile(loss='binary_crossentropy', optimizer='adam',metrics=['acc',tf.keras.metrics.Recall(),tf.keras.metrics.AUC(),tf.keras.metrics.Precision()])
